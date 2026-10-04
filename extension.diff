@@ -1,0 +1,28 @@
+diff --git a/src/AsciiRenderer.java b/src/AsciiRenderer.java
+new file mode 100644
+index 0000000..e69de29
+--- /dev/null
++++ b/src/AsciiRenderer.java
+@@ -0,0 +1,8 @@
++public class AsciiRenderer implements Renderer {
++    @Override
++    public String renderShape(String shapeName, int dimension) {
++        return "ASCII " + shapeName + " i=" + dimension;
++    }
++}
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java
++++ b/src/Main.java
+@@ -48,2 +48,12 @@
++        // T6: A1 with I3
++        Shape c3 = new Circle("C3", new AsciiRenderer());
++        String t6 = c3.execute();
++        passed += check("T6", t6.equals("ASCII circle radius i=2"), "Circle + AsciiRenderer", t6);
++
++        // T7: A2 with I3
++        Shape s3 = new Square("S3", new AsciiRenderer());
++        String t7 = s3.execute();
++        passed += check("T7", t7.equals("ASCII square side i=3"), "Square + AsciiRenderer", t7);
++
+         System.out.println("SUMMARY: " + passed + "/7 PASS");
+     }
